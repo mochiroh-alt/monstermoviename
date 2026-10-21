@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>映画名ランダムビューア</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .text-box {
+            padding: 20px;
+            max-width: 90%;
+        }
+        .work-title {
+            font-size: clamp(32px, 8vw, 72px);
+            font-weight: bold;
+            line-height: 1.4;
+            color: #4fc3f7; /* 青緑っぽくして見やすくする例。#ffeb3b などでもOK */
+        }
+    </style>
+</head>
+<body onclick="showRandomText()">
+
+    <div class="text-box">
+        <div id="titleArea" class="work-title">読み込み中...</div>
+    </div>
+
+<script>
+    // 映画名・作品名の全リスト
+    const items = [
+        "ゴジラ'1954",
+        "ゴジラの逆襲",
+        "キングコング対ゴジラ",
+        "モスラ対ゴジラ",
+        "三大怪獣地球最大の決戦",
+        "怪獣大戦争",
+        "南海の大決闘",
+        "ゴジラの息子",
+        "怪獣総進撃",
+        "オール怪獣大進撃",
+        "空の大怪獣ラドン",
+        "ゴジラVSメカゴジラ",
+        "ゴジラファイナルウォーズ",
+        "KOM",
+        "ゴジラ対ヘドラ",
+        "ゴジラ対ガイガン",
+        "ゴジラ対メガロ",
+        "モスラ'1961",
+        "ゴジラVSモスラ",
+        "モスラ'1996",
+        "モスラ2",
+        "モスラ3",
+        "GMK 大怪獣総攻撃",
+        "ゴジラVSキングギドラ",
+        "ゴジラ2000 ミレニアム",
+        "ゴジラ×メガギラス",
+        "メカゴジラの逆襲",
+        "ゴジラ'1984",
+        "ゴジラVSビオランテ",
+        "ゴジラVSスペースゴジラ",
+        "ゴジラVSデストロイア",
+        "大怪獣バラン",
+        "GODZILLA'1998",
+        "キングコングの逆襲",
+        "ゴジラvsコング",
+        "GxK NEW EMPIRE",
+        "サンダ対ガイラ",
+        "ゴジラ×メカゴジラ",
+        "GMMG 東京SOS",
+        "GODZILLA'2014",
+        "宇宙大怪獣ドゴラ",
+        "フランケンシュタイン対地底怪獣",
+        "アニゴジ",
+        "シン・ゴジラ",
+        "ゴジラ -1.0",
+        "GKM 大怪獣総攻撃",
+        "地球防衛軍",
+        "ゴジラSP",
+        "宇宙大戦争",
+        "美女と液体人間",
+        "ヤマトタケル",
+        "ガンヘッド",
+        "日本誕生",
+        "マタンゴ",
+        "海底軍艦",
+        "妖星ゴラス",
+        "決戦！南海の大怪獣",
+        "ガス人間第一号",
+        "電送人間",
+        "惑星大戦争",
+        "緯度0大作戦",
+        "大怪獣ガメラ",
+        "大怪獣決闘 ガメラ対バルゴン",
+        "大怪獣空中戦 ガメラ対ギャオス",
+        "ガメラ対宇宙怪獣バイラス",
+        "ガメラ対大悪獣ギロン",
+        "ガメラ対大魔獣ジャイガー",
+        "ガメラ対深海怪獣ジグラ",
+        "宇宙怪獣ガメラ",
+        "ガメラ 大怪獣空中決戦",
+        "ガメラ2 レギオン襲来",
+        "ガメラ3 邪神覚醒",
+        "小さき勇者たち〜ガメラ〜",
+        "GAMERA -Rebirth-"
+    ];
+
+    function showRandomText() {
+        if (items.length === 0) return;
+        
+        // 重複を除いたリスト、またはそのまま全作品からランダムに選ぶ場合
+        const randomIndex = Math.floor(Math.random() * items.length);
+        document.getElementById('titleArea').innerText = items[randomIndex];
+    }
+
+    window.onload = function() {
+        showRandomText();
+    };
+</script>
+
+</body>
+</html>
