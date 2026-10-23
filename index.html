@@ -18,17 +18,21 @@
             cursor: pointer;
             font-family: sans-serif;
             text-align: center;
+            box-sizing: border-box;
         }
         .text-box {
-            padding: 20px;
-            max-width: 90%;
+            padding: 10px;
+            width: 100%;
+            max-width: 600px;
         }
         .work-title {
-            font-size: clamp(28px, 7vw, 64px);
+            /* 画面幅に合わせて文字サイズを自動調整しつつ、長文でもはみ出さないようにする */
+            font-size: clamp(20px, 5.5vw, 42px);
             font-weight: bold;
-            line-height: 1.4;
+            line-height: 1.5;
             color: #4fc3f7;
-            white-space: pre-line;
+            white-space: pre-line; /* 手動の改行(\n)のみを反映させる */
+            word-break: auto-phrase; /* 可能な限り不自然な位置で折れないようにする設定 */
         }
     </style>
 </head>
@@ -45,14 +49,14 @@
         "ゴジラの逆襲",
         "キングコング対ゴジラ",
         "モスラ対ゴジラ",
-        "三大怪獣 地球最大の決戦",
+        "三大怪獣\n地球最大の決戦",
         "怪獣大戦争",
-        "ゴジラ・エビラ・モスラ 南海の大決闘",
-        "怪獣島の決戦 ゴジラの息子",
+        "ゴジラ・エビラ・モスラ\n南海の大決闘",
+        "怪獣島の決戦\nゴジラの息子",
         "怪獣総進撃",
-        "ゴジラ・ミニラ・ガバラ オール怪獣大進撃",
+        "ゴジラ・ミニラ・ガバラ\nオール怪獣大進撃",
         "ゴジラ対ヘドラ",
-        "地球攻撃命令 ゴジラ対ガイガン",
+        "地球攻撃命令\nゴジラ対ガイガン",
         "ゴジラ対メガロ",
         "ゴジラ対メカゴジラ",
         "メカゴジラの逆襲",
@@ -63,22 +67,22 @@
         "ゴジラVSメカゴジラ",
         "ゴジラVSスペースゴジラ",
         "ゴジラVSデストロイア",
-        "ゴジラ2000 ミレニアム",
-        "ゴジラ×メガギラス 消滅作戦",
-        "ゴジラ モスラ キングギドラ 大怪獣総攻撃",
+        "ゴジラ2000\nミレニアム",
+        "ゴジラ×メガギラス\nG消滅作戦",
+        "ゴジラ モスラ キングギドラ\n大怪獣総攻撃",
         "ゴジラ×メカゴジラ",
-        "ゴジラ×モスラ×メカゴジラ 東京SOS",
+        "ゴジラ×モスラ×メカゴジラ\n東京SOS",
         "GODZILLA FINALWARS",
         "シン・ゴジラ",
         "ゴジラ -1.0",
-        "GODZILLA 怪獣惑星",
-        "GODZILLA 決戦機動増殖都市",
-        "GODZILLA 星を喰う者",
+        "GODZILLA\n怪獣惑星",
+        "GODZILLA\n決戦機動増殖都市",
+        "GODZILLA\n星を喰う者",
         "GODZILLA（1998）",
         "GODZILLA（2014）",
-        "GODZILLA KING OF THE MONSTERS",
+        "GODZILLA\nKING OF THE MONSTERS",
         "GODZILLA vs KONG",
-        "GODZILLA × KONG NEW EMPIRE",
+        "GODZILLA × KONG\nNEW EMPIRE",
         "空の大怪獣ラドン",
         "地球防衛軍",
         "宇宙大戦争",
@@ -88,9 +92,9 @@
         "宇宙大怪獣ドゴラ",
         "モスラ（1961）",
         "モスラ（1996）",
-        "モスラ2 海底の大決戦",
-        "モスラ3 キングギドラ来襲",
-        "ゲゾラ・ガニメ・カメーバ 決戦！南海の大怪獣",
+        "モスラ2\n海底の大決戦",
+        "モスラ3\nキングギドラ来襲",
+        "ゲゾラ・ガニメ・カメーバ\n決戦！南海の大怪獣",
         "惑星大戦争",
         "日本沈没（1974）",
         "日本沈没（2006）",
@@ -98,8 +102,8 @@
         "ヤマトタケル",
         "ガンヘッド",
         "さよならジュピター",
-        "フランケンシュタイン対地底怪獣",
-        "フランケンシュタインの怪獣サンダ対ガイラ",
+        "フランケンシュタイン\n対 地底怪獣",
+        "フランケンシュタインの怪獣\nサンダ対ガイラ",
         "キングコングの逆襲",
         "緯度0大作戦",
         "劇場版 超星艦隊セイザーX 戦え!星の戦士たち",
@@ -113,12 +117,10 @@
         if (items.length === 0) return;
         
         const randomIndex = Math.floor(Math.random() * items.length);
-        // 文字列として正しく画面に代入するように修正
         document.getElementById('titleArea').innerText = items[randomIndex];
     }
 
     window.onload = function() {
-        showRandomTest = showRandomText; // 念のため
         showRandomText();
     };
 </script>
